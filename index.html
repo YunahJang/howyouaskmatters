@@ -14,70 +14,44 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Ctext x='32' y='45' font-size='38' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3E%3F%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff;
-    --bg-soft: #f8fafc;
-    --bg-tint: #f1f5ff;
+    --sans: "Source Sans 3", "Source Sans Pro", -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --band: #776d97;
+    --bg: #fbf9fb;
+    --bg-soft: #f3eef7;
+    --bg-tint: #f3eef7;
     --card: #ffffff;
-    --ink: #0f172a;
-    --ink-2: #334155;
-    --muted: #64748b;
-    --line: #e2e8f0;
-    --accent: #4f46e5;
+    --ink: #232a36;
+    --ink-2: #4a5160;
+    --muted: #7d8291;
+    --line: #e1ddeb;
+    --frame: #5f5475;
+    --purple: #5f5475;
+    --crimson: #c75370;
+    --green: #258343;
+    --accent: #c75370;
     --accent-ink: #ffffff;
-    --accent-soft: #eef2ff;
-    --bad: #dc2626;
-    --c-orig: #475569;
-    --c-human: #7c3aed;
-    --c-style: #2563eb;
-    --c-sent: #0d9488;
-    --c-err: #ea580c;
-    --hl-add: #fde68a;
-    --hl-add-ink: #78350f;
-    --shadow: 0 1px 2px rgba(15,23,42,.04), 0 8px 24px rgba(15,23,42,.06);
-    --radius: 16px;
-    --maxw: 1040px;
+    --accent-soft: #fff2f4;
+    --bad: #c75370;
+    --c-orig: #5f5475;
+    --c-human: #c75370;
+    --c-style: #6e67bd;
+    --c-sent: #9187bd;
+    --c-err: #e07b7e;
+    --hl-add: #ffdfe5;
+    --hl-add-ink: #ba3f5f;
+    --shadow: none;
+    --radius: 0px;
+    --maxw: 1080px;
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0b1020;
-      --bg-soft: #0f1629;
-      --bg-tint: #121a33;
-      --card: #111830;
-      --ink: #e8ecf6;
-      --ink-2: #c3cad9;
-      --muted: #8f9ab3;
-      --line: #222c47;
-      --accent: #8b93ff;
-      --accent-ink: #0b1020;
-      --accent-soft: #1b2250;
-      --bad: #f87171;
-      --c-orig: #94a3b8;
-      --c-human: #a78bfa;
-      --c-style: #60a5fa;
-      --c-sent: #2dd4bf;
-      --c-err: #fb923c;
-      --hl-add: #5b4a12;
-      --hl-add-ink: #fde68a;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #0b1020; --bg-soft: #0f1629; --bg-tint: #121a33; --card: #111830;
-    --ink: #e8ecf6; --ink-2: #c3cad9; --muted: #8f9ab3; --line: #222c47;
-    --accent: #8b93ff; --accent-ink: #0b1020; --accent-soft: #1b2250; --bad: #f87171;
-    --c-orig: #94a3b8; --c-human: #a78bfa; --c-style: #60a5fa; --c-sent: #2dd4bf; --c-err: #fb923c;
-    --hl-add: #5b4a12; --hl-add-ink: #fde68a;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
-  }
-
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0; background: var(--bg); color: var(--ink);
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: var(--sans);
     font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased;
   }
   a { color: var(--accent); text-decoration: none; }
@@ -102,13 +76,13 @@
   nav.top .links { display: flex; gap: 22px; font-size: 14.5px; overflow-x: auto; scrollbar-width: none; }
   nav.top .links a { color: var(--muted); white-space: nowrap; }
   nav.top .links a:hover { color: var(--ink); text-decoration: none; }
-  #themeBtn { border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 999px; width: 34px; height: 34px; cursor: pointer; flex: none; display: grid; place-items: center; padding: 0; }
+  #themeBtn { border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 3px; width: 34px; height: 34px; cursor: pointer; flex: none; display: grid; place-items: center; padding: 0; }
 
   /* hero */
   header.hero { padding: 72px 0 40px; text-align: center; background:
       radial-gradient(1200px 400px at 50% -120px, var(--accent-soft), transparent 70%); }
   .venue { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); padding: 6px 14px; border-radius: 999px; }
+    background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); padding: 6px 14px; border-radius: 3px; }
   .venue .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
   h1 { font-size: clamp(34px, 6vw, 60px); line-height: 1.05; letter-spacing: -.035em; margin: 22px auto 12px; font-weight: 800; }
   h1 .q { color: var(--accent); }
@@ -119,7 +93,7 @@
   .affil { color: var(--muted); font-size: 15px; margin: 0 0 4px; }
   .affil span { margin: 0 10px; white-space: nowrap; }
   .btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 15px;
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 3px; font-weight: 600; font-size: 15px;
     background: var(--ink); color: var(--bg); border: 1px solid var(--ink); transition: transform .15s ease, opacity .15s; }
   .btn:hover { text-decoration: none; transform: translateY(-1px); opacity: .92; }
   .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
@@ -133,11 +107,11 @@
   .teaser-head h3 { font-size: 17px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
   .chip { --c: var(--c-orig); border: 1.5px solid color-mix(in srgb, var(--c) 45%, transparent); color: var(--c); background: transparent;
-    border-radius: 999px; padding: 6px 13px; font: 600 13.5px/1 Inter, sans-serif; cursor: pointer; transition: all .15s; }
+    border-radius: 3px; padding: 6px 13px; font: 600 13.5px/1 var(--sans); cursor: pointer; transition: all .15s; }
   .chip:hover { background: color-mix(in srgb, var(--c) 10%, transparent); }
   .chip[aria-pressed="true"] { background: var(--c); color: #fff; border-color: var(--c); }
   .chip .cat { opacity: .7; font-weight: 500; margin-right: 4px; }
-  .qbox { border-radius: 12px; background: var(--bg-soft); border: 1px solid var(--line); padding: 18px 20px; }
+  .qbox { border-radius: 3px; background: var(--bg-soft); border: 1px solid var(--line); padding: 18px 20px; }
   .qrow { display: grid; grid-template-columns: 92px 1fr; gap: 12px; align-items: baseline; }
   .qrow + .qrow { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); }
   .qlabel { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -146,40 +120,40 @@
   .qtext .gone { text-decoration: line-through; color: var(--muted); }
   .note { font-size: 13px; color: var(--muted); margin-top: 12px; }
   .stats3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
-  .stat { border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; background: var(--card); }
+  .stat { border: 1px solid var(--line); border-radius: 3px; padding: 16px 18px; background: var(--card); }
   .stat .k { font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
   .stat .v { font-size: 30px; font-weight: 800; letter-spacing: -.03em; color: var(--bad); line-height: 1.2; margin: 6px 0 4px; }
   .stat .v.txt { font-size: 21px; padding: 5px 0 4px; }
   .stat .d { font-size: 14px; color: var(--ink-2); line-height: 1.45; }
 
   /* tldr */
-  .tldr { border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 14px 14px 0; padding: 18px 22px; margin: 0 0 28px; font-size: 18px; }
+  .tldr { border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0; padding: 18px 22px; margin: 0 0 28px; font-size: 18px; }
   .tldr b { color: var(--accent); }
   .prose p { margin: 0 0 16px; color: var(--ink-2); max-width: 820px; }
   .prose strong { color: var(--ink); }
 
   /* numbers strip */
   .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 0 0 36px; }
-  .num { padding: 20px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+  .num { padding: 20px; border-radius: 3px; background: var(--card); border: 1px solid var(--line); }
   .num .n { font-size: 34px; font-weight: 800; letter-spacing: -.03em; line-height: 1; }
   .num .l { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
 
   /* taxonomy */
   .tax { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .tcard { padding: 20px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--c); }
+  .tcard { padding: 20px; border-radius: 3px; background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--c); }
   .tcard .tag { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c); }
   .tcard h3 { margin-top: 6px; }
   .tcard ul { margin: 8px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 15px; }
   .tcard li { margin-bottom: 4px; }
   .datasets { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
-  .ds { padding: 18px 20px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); }
+  .ds { padding: 18px 20px; border-radius: 3px; border: 1px solid var(--line); background: var(--card); }
   .ds .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-  .pill { font-size: 14px; padding: 4px 11px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--line); color: var(--ink-2); }
+  .pill { font-size: 14px; padding: 4px 11px; border-radius: 3px; background: var(--bg-soft); border: 1px solid var(--line); color: var(--ink-2); }
 
   /* axes */
   .axes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .axis { padding: 24px; }
-  .axis .ic { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); margin-bottom: 14px; }
+  .axis .ic { width: 42px; height: 42px; border-radius: 3px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); margin-bottom: 14px; }
   .axis .ic svg { width: 22px; height: 22px; }
   .axis p { color: var(--ink-2); font-size: 15.5px; margin: 0 0 12px; }
   .metric { font-size: 14.5px; padding: 8px 0; border-top: 1px solid var(--line); color: var(--ink-2); }
@@ -189,15 +163,15 @@
   /* chart */
   .chart-card { padding: 26px; }
   .controls { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; margin-bottom: 22px; }
-  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; padding: 3px; background: var(--bg-soft); flex-wrap: wrap; }
-  .seg button { border: 0; background: transparent; color: var(--muted); font: 600 14px Inter, sans-serif; padding: 7px 12px; border-radius: 7px; cursor: pointer; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 3px; padding: 3px; background: var(--bg-soft); flex-wrap: wrap; }
+  .seg button { border: 0; background: transparent; color: var(--muted); font: 600 14px var(--sans); padding: 7px 12px; border-radius: 3px; cursor: pointer; }
   .seg button[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
   .ctl-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 8px; }
   .bars { display: grid; gap: 9px; }
   .bar-row { display: grid; grid-template-columns: 112px 1fr 104px; gap: 12px; align-items: center; font-size: 14.5px; }
   .bar-row .lab { color: var(--ink-2); font-weight: 500; }
-  .track { position: relative; height: 26px; background: var(--bg-soft); border-radius: 7px; overflow: visible; }
-  .fill { position: absolute; inset: 0 auto 0 0; border-radius: 7px; background: var(--c); transition: width .5s cubic-bezier(.2,.8,.2,1); }
+  .track { position: relative; height: 26px; background: var(--bg-soft); border-radius: 3px; overflow: visible; }
+  .fill { position: absolute; inset: 0 auto 0 0; border-radius: 3px; background: var(--c); transition: width .5s cubic-bezier(.2,.8,.2,1); }
   .ref { position: absolute; top: -4px; bottom: -4px; width: 0; border-left: 2px dashed var(--ink); opacity: .55; transition: left .5s cubic-bezier(.2,.8,.2,1); }
   .val { font-variant-numeric: tabular-nums; font-weight: 700; text-align: right; white-space: nowrap; }
   .val .dl { font-weight: 600; font-size: 13px; margin-left: 6px; }
@@ -225,8 +199,8 @@
 
   /* bibtex */
   .bib { position: relative; }
-  .bib pre { margin: 0; padding: 22px 24px; overflow-x: auto; font: 14px/1.7 "JetBrains Mono", ui-monospace, Menlo, monospace; color: var(--ink-2); background: var(--bg-soft); border-radius: var(--radius); border: 1px solid var(--line); }
-  #copyBtn { position: absolute; top: 12px; right: 12px; border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 8px; padding: 6px 12px; font: 600 13px Inter, sans-serif; cursor: pointer; }
+  .bib pre { margin: 0; padding: 22px 24px; overflow-x: auto; font: 14px/1.7 var(--mono); color: var(--ink-2); background: var(--bg-soft); border-radius: var(--radius); border: 1px solid var(--line); }
+  #copyBtn { position: absolute; top: 12px; right: 12px; border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 3px; padding: 6px 12px; font: 600 13px var(--sans); cursor: pointer; }
 
   footer { padding: 40px 0 56px; color: var(--muted); font-size: 14px; text-align: center; }
   footer .logos { margin-bottom: 8px; color: var(--ink-2); font-weight: 600; }
@@ -252,6 +226,82 @@
     h2 { font-size: 25px; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+  /* ---------- poster tone ---------- */
+  body { font-size: 18px; line-height: 1.6; }
+  a { color: var(--crimson); }
+  nav.top { background: color-mix(in srgb, var(--bg) 88%, transparent); }
+  nav.top .brand { font-family: var(--mono); font-weight: 600; }
+  header.band { background: var(--band); color: #fff; padding: 52px 0 44px; }
+  .head-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 36px; align-items: center; }
+  .head-grid > div { min-width: 0; }
+  .venue2 { display: inline-block; font-family: var(--mono); font-size: 14px; font-weight: 500; border: 1.5px solid rgba(255,255,255,.75); padding: 4px 12px; margin-bottom: 18px; }
+  header.band h1 { font-family: var(--mono); font-weight: 600; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.08; letter-spacing: -.01em; margin: 0 0 10px; }
+  header.band .sub { font-family: var(--mono); font-weight: 600; font-size: clamp(17px, 2.4vw, 28px); line-height: 1.25; margin: 0 0 22px; }
+  header.band .authors { font-size: clamp(17px, 1.9vw, 22px); margin: 0 0 6px; }
+  header.band .authors sup, header.band .affil sup { font-size: .62em; }
+  header.band .affil { font-size: 16px; color: #fff; opacity: .92; margin: 0; }
+  header.band .authors span, header.band sup { color: inherit; }
+  section { padding: 56px 0; }
+  #themeBtn { display: none; }
+  header.band .affil span { display: inline-block; margin-right: 16px; white-space: nowrap; }
+  header.band .btns { justify-content: flex-start; margin-top: 26px; }
+  header.band .btn { font-family: var(--mono); background: #fff; color: var(--band); border: 2px solid #fff; border-radius: 3px; padding: 8px 16px; }
+  header.band .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.75); }
+  .logos { background: #f3f1f7; padding: 18px 22px; display: grid; grid-template-columns: auto auto; gap: 12px 18px; align-items: center; justify-items: start; }
+  .logos img { display: block; height: auto; }
+  .logos .emnlp, .logos .mpi { width: 210px; grid-column: 1 / -1; }
+  .logos .milab { width: 128px; } .logos .snu { width: 50px; justify-self: end; }
+  .teaser-wrap { margin-top: 36px; }
+  .teaser { margin-top: 0; }
+  .card { border: 2px solid var(--frame); }
+  .stat, .num, .ds { border: 1.5px solid var(--line); }
+  .tcard { border: 1.5px solid var(--line); border-top: 4px solid var(--c); }
+  .eyebrow { font-family: var(--mono); font-weight: 500; font-size: 17px; letter-spacing: 0; text-transform: none; color: var(--crimson); margin-bottom: 4px; }
+  h2 { font-weight: 700; font-size: 34px; letter-spacing: -.01em; color: var(--purple); }
+  section:nth-of-type(even) h2 { color: var(--crimson); }
+  section:nth-of-type(even) .eyebrow { color: var(--purple); }
+  .tldr { border-left: 0; background: transparent; padding: 0; display: grid; grid-template-columns: auto 1fr; gap: 16px; font-size: 20px; font-weight: 600; line-height: 1.45; }
+  .tldr b { font-family: var(--mono); font-weight: 500; color: var(--crimson); }
+  .qtext, .qbox .qtext { font-family: var(--mono); font-size: 17px; font-weight: 400; }
+  .qlabel { font-family: var(--mono); letter-spacing: 0; text-transform: none; font-size: 14px; }
+  .chip { font-family: var(--mono); font-weight: 500; }
+  .stat .k, .num .l, .setup .k { font-family: var(--sans); }
+  .stat .v, .num .n { font-family: var(--sans); font-weight: 800; }
+  .finding::before { background: var(--crimson); color: #fff; font-family: var(--mono); border-radius: 0; }
+  .axis .ic { background: var(--bg-soft); color: var(--purple); }
+  .seg button { font-family: var(--mono); font-weight: 500; }
+  .ref { border-left-color: var(--ink); }
+  .bib pre { background: var(--bg-soft); border: 2px solid var(--frame); color: var(--ink); }
+  #copyBtn { font-family: var(--mono); border: 1.5px solid var(--frame); color: var(--purple); }
+  footer.band2 { background: var(--band); color: #fff; padding: 26px 0 30px; text-align: left; margin-top: 0; }
+  footer.band2 a { color: #fff; text-decoration: underline; }
+  footer.band2 .mail { font-family: var(--mono); font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  /* failure case (from the poster) */
+  .ex3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ex3 > * { min-width: 0; }
+  .ex { padding: 16px 18px 12px; position: relative; display: flex; flex-direction: column; background: var(--card); border: 1.5px solid var(--line); }
+  .ex.bad { background: var(--accent-soft); border: 2px solid var(--crimson); }
+  .ex .lab { font-family: var(--mono); font-weight: 600; color: var(--purple); font-size: 15.5px; }
+  .ex.bad .lab { color: var(--crimson); }
+  .ex .mark { position: absolute; right: 14px; top: 8px; font-size: 28px; line-height: 1; }
+  .ex .q { font-family: var(--mono); font-size: 15.5px; line-height: 1.5; margin: 8px 0 14px; flex: 1; }
+  .ex .ans { font-size: 16.5px; color: var(--ink-2); }
+  .ex .ans b { font-size: 18.5px; }
+  .ex .cost { font-family: var(--mono); font-size: 14.5px; border-top: 1px solid var(--line); margin-top: 12px; padding-top: 8px; color: var(--ink-2); }
+  .ex .cost b { font-size: 17px; color: var(--ink); margin-right: 14px; }
+  .ex.bad .cost b.r { color: var(--crimson); }
+  .ok { color: var(--green); } .no { color: var(--crimson); }
+  @media (max-width: 900px) {
+    .head-grid { grid-template-columns: minmax(0, 1fr); }
+    .logos { justify-self: start; }
+    .ex3 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    header.band { padding: 32px 0 28px; }
+    .logos .emnlp, .logos .mpi { width: 170px; }
+    .tldr { grid-template-columns: 1fr; gap: 2px; font-size: 18px; }
+    h2 { font-size: 27px; }
+  }
 </style>
 </head>
 <body>
@@ -261,34 +311,24 @@
     <a class="brand" href="#top">How You Ask Matters!</a>
     <div class="links">
       <a href="#abstract">Abstract</a>
+      <a href="#case">Example</a>
       <a href="#benchmark">Benchmark</a>
       <a href="#evaluation">Evaluation</a>
       <a href="#results">Results</a>
       <a href="#findings">Findings</a>
       <a href="#bibtex">BibTeX</a>
     </div>
-    <button id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <span class="venue"><span class="dot"></span>EMNLP 2026 · Main Conference</span>
-    <h1>How You Ask Matters<span class="q">!</span></h1>
-    <p class="subtitle">Adaptive RAG Robustness to Query Variations</p>
-
-    <p class="authors">
-      <span><a href="mailto:vn2209@snu.ac.kr">Yunah Jang</a><sup>1</sup></span>
-      <span>Megha Sundriyal<sup>2</sup></span>
-      <span>Kyomin Jung<sup>1†</sup></span>
-      <span>Meeyoung Cha<sup>2†</sup></span>
-    </p>
-    <p class="affil">
-      <span><sup>1</sup>Seoul National University</span>
-      <span><sup>2</sup>Max Planck Institute for Security and Privacy</span>
-    </p>
-    <p class="affil small"><sup>†</sup>Co-corresponding authors</p>
-
+<header class="band" id="top">
+  <div class="wrap head-grid">
+    <div>
+      <span class="venue2">EMNLP 2026 · Main Conference</span>
+      <h1>How You Ask Matters!</h1>
+      <p class="sub">Adaptive RAG Robustness to Query Variations</p>
+      <p class="authors">Yunah Jang<sup>1</sup>, Megha Sundriyal<sup>2</sup>, Kyomin Jung<sup>1†</sup>, Meeyoung Cha<sup>2†</sup></p>
+      <p class="affil"><span><sup>1</sup>Seoul National University</span><span><sup>2</sup>Max Planck Institute for Security and Privacy</span><span><sup>†</sup>Co-corresponding authors</span></p>
     <div class="btns">
       <a class="btn" href="https://arxiv.org/pdf/2604.10745">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
@@ -308,11 +348,22 @@
       </a>
     </div>
 
+    </div>
+    <div class="logos" aria-label="EMNLP 2026, Machine Intelligence Lab, Seoul National University, Max Planck Institute for Security and Privacy">
+      <img class="emnlp" src="assets/emnlp.png" alt="EMNLP 2026 Budapest">
+      <img class="milab" src="assets/milab.png" alt="Machine Intelligence Lab, Seoul National University">
+      <img class="snu" src="assets/snu.png" alt="Seoul National University">
+      <img class="mpi" src="assets/mpi.png" alt="Max Planck Institute for Security and Privacy">
+    </div>
+  </div>
+</header>
+
+<div class="wrap teaser-wrap">
     <!-- Teaser -->
     <div class="teaser">
       <div class="card">
         <div class="teaser-head">
-          <h3>Same question, eight ways to ask it. Pick one:</h3>
+          <h3>Same question, different ways to ask it. Pick one:</h3>
           <span class="muted small">The gold answer never changes.</span>
         </div>
         <div class="chips" id="chips" role="group" aria-label="Query variation"></div>
@@ -320,7 +371,7 @@
           <div class="qrow"><div class="qlabel">Original</div><div class="qtext" id="qOrig"></div></div>
           <div class="qrow"><div class="qlabel" id="qVarLabel">Variant</div><div class="qtext" id="qVar"></div></div>
         </div>
-        <div class="note">Illustrative example; highlighted words differ from the original query. Released variations follow the same taxonomy.</div>
+        <div class="note">Examples from the benchmark; highlighted words differ from the original query.</div>
 
         <div class="stats3">
           <div class="stat">
@@ -341,14 +392,13 @@
         </div>
       </div>
     </div>
-  </div>
-</header>
+</div>
 
 <section id="abstract">
   <div class="wrap">
-    <div class="eyebrow">Abstract</div>
+    <div class="eyebrow">01 Abstract</div>
     <h2>Robust to <em>what</em> you ask, but not to <em>how</em> you ask it?</h2>
-    <div class="tldr"><b>TL;DR</b> — Rephrasing a question without changing its meaning can make an Adaptive RAG system retrieve differently, spend different compute and return a different answer. Higher accuracy does not buy higher robustness.</div>
+    <div class="tldr"><b>TL;DR</b><span>Rephrasing a question without changing its meaning can make an Adaptive RAG system retrieve differently, spend different compute and return a different answer. Higher accuracy does not buy higher robustness.</span></div>
     <div class="prose">
       <p>Adaptive Retrieval-Augmented Generation (RAG) promises accuracy and efficiency by dynamically triggering retrieval only when needed and is widely used in practice. However, real-world queries vary in surface form even with the same intent, and their impact on Adaptive RAG remains under-explored. We introduce the first large-scale benchmark of diverse yet semantically identical query variations, combining human-written and model-generated rewrites. Our benchmark facilitates a systematic evaluation of Adaptive RAG robustness by examining its key components across three dimensions: answer quality, computational cost, and retrieval decisions.</p>
       <p>We discover a critical robustness gap, where small surface-level changes in queries dramatically alter retrieval behavior and accuracy. Although larger models show better performance, robustness does not improve accordingly. These findings reveal that Adaptive RAG methods are highly vulnerable to query variations that preserve identical semantics, exposing a critical robustness challenge.</p>
@@ -356,9 +406,37 @@
   </div>
 </section>
 
+<section id="case">
+  <div class="wrap">
+    <div class="eyebrow">02 A failure case</div>
+    <h2>Same intent, different answer</h2>
+    <p class="lede">Same question, three phrasings. Only the human rewrite fails, after a single retrieval.</p>
+    <div class="ex3">
+      <div class="ex">
+        <div class="lab">Original</div><div class="mark ok">✓</div>
+        <div class="q">Who was the teacher of the composer of song Prometheus (Art Song)?</div>
+        <div class="ans">Answer: <b class="ok">Antonio Salieri</b></div>
+        <div class="cost">Retriever × <b>4</b> LLM × <b>5</b></div>
+      </div>
+      <div class="ex bad">
+        <div class="lab">Human rewrite</div><div class="mark no">✗</div>
+        <div class="q">Teacher of the composer of art song Prometheus.</div>
+        <div class="ans">Answer: <b class="no">Sergei Taneyev</b></div>
+        <div class="cost">Retriever × <b class="r">1</b> LLM × <b>2</b></div>
+      </div>
+      <div class="ex">
+        <div class="lab">LLM rewrite</div><div class="mark ok">✓</div>
+        <div class="q">Identify the teacher of the composer of the song “Prometheus” (Art Song).</div>
+        <div class="ans">Answer: <b class="ok">Antonio Salieri</b></div>
+        <div class="cost">Retriever × <b>2</b> LLM × <b>4</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="alt" id="benchmark">
   <div class="wrap">
-    <div class="eyebrow">Benchmark</div>
+    <div class="eyebrow">03 Benchmark</div>
     <h2>Meaning-preserving query variations at scale</h2>
     <p class="lede">Every question is rewritten along a controlled taxonomy while its gold answers stay fixed, so any change in system output comes from the query's surface form alone.</p>
 
@@ -407,7 +485,7 @@
 
 <section id="evaluation">
   <div class="wrap">
-    <div class="eyebrow">Evaluation</div>
+    <div class="eyebrow">04 Evaluation</div>
     <h2>Three axes of robustness</h2>
     <p class="lede">Each variant is compared against the original query, under the same method, model and retriever.</p>
     <div class="axes">
@@ -439,7 +517,7 @@
 
 <section class="alt" id="results">
   <div class="wrap">
-    <div class="eyebrow">Results</div>
+    <div class="eyebrow">05 Results</div>
     <h2>Accuracy moves with the wording</h2>
     <p class="lede">InAccuracy for each variation compared with the original query (dashed line). Human rewrites and spelling errors account for the largest drops in most settings, for both methods and both models.</p>
 
@@ -466,7 +544,7 @@
 
 <section id="findings">
   <div class="wrap">
-    <div class="eyebrow">Key findings</div>
+    <div class="eyebrow">06 Key findings</div>
     <h2>What we learned</h2>
     <p class="lede">The robustness gap is consistent across methods, models and retrievers.</p>
     <div class="findings">
@@ -480,7 +558,7 @@
 
 <section class="alt" id="setup">
   <div class="wrap">
-    <div class="eyebrow">Setup</div>
+    <div class="eyebrow">07 Setup</div>
     <h2>What we evaluate</h2>
     <p class="lede">Two representative Adaptive RAG paradigms, two model scales and two retriever families, with no-retrieval and single-retrieval references.</p>
     <div class="setup">
@@ -506,7 +584,7 @@
 
 <section id="bibtex">
   <div class="wrap">
-    <div class="eyebrow">Citation</div>
+    <div class="eyebrow">08 Citation</div>
     <h2>BibTeX</h2>
     <p class="lede">If you find this work useful, please cite:</p>
     <div class="bib">
@@ -521,36 +599,23 @@
   </div>
 </section>
 
-<footer>
+<footer class="band2">
   <div class="wrap">
-    <div class="logos">Seoul National University · Max Planck Institute for Security and Privacy</div>
-    <div>Questions? Open an issue on <a href="https://github.com/YunahJang/AdaptiveRAG-Robustness/issues">GitHub</a>.</div>
+    <div class="mail">vn2209@snu.ac.kr</div>
+    <div>Code &amp; data: <a href="https://github.com/YunahJang/AdaptiveRAG-Robustness">github.com/YunahJang/AdaptiveRAG-Robustness</a> · Questions? <a href="https://github.com/YunahJang/AdaptiveRAG-Robustness/issues">Open an issue</a>.</div>
   </div>
 </footer>
 
 <script>
 (function () {
-  // ---------- theme ----------
-  var root = document.documentElement;
-  try { var t = localStorage.getItem('hyam-theme'); if (t) root.setAttribute('data-theme', t); } catch (e) {}
-  document.getElementById('themeBtn').addEventListener('click', function () {
-    var cur = root.getAttribute('data-theme') ||
-      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    var next = cur === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem('hyam-theme', next); } catch (e) {}
-  });
 
   // ---------- teaser ----------
-  var ORIGINAL = 'who wrote the declaration of independence';
+  var ORIGINAL = 'Who is the child of the director of film Mukhyamantri (1996 Film)?';
   var VARIANTS = [
-    { id: 'human',       label: 'Human',       cat: 'Human',  c: '--c-human', q: 'Can you tell me who authored the Declaration of Independence?' },
-    { id: 'formality',   label: 'Formality',   cat: 'Style',  c: '--c-style', q: 'hey, so who actually wrote the declaration of independence?' },
-    { id: 'readability', label: 'Readability', cat: 'Style',  c: '--c-style', q: 'To which individual is the authorship of the Declaration of Independence ascribed?' },
-    { id: 'declarative', label: 'Declarative', cat: 'Type',   c: '--c-sent',  q: 'I want to know who wrote the Declaration of Independence.' },
-    { id: 'imperative',  label: 'Imperative',  cat: 'Type',   c: '--c-sent',  q: 'Tell me who wrote the Declaration of Independence.' },
-    { id: 'spelling',    label: 'Spelling',    cat: 'Error',  c: '--c-err',   q: 'who wrote the declaraton of independance' },
-    { id: 'grammar',     label: 'Grammar',     cat: 'Error',  c: '--c-err',   q: 'who did wrote the declaration of independence' }
+    { id: 'human',      label: 'Human',      cat: 'Human', c: '--c-human', q: 'mukhyamantri 1966 director child' },
+    { id: 'formality',  label: 'Formality',  cat: 'Style', c: '--c-style', q: "Yo, quick one — who's the kid of the director behind the 1996 flick Mukhyamantri?" },
+    { id: 'imperative', label: 'Imperative', cat: 'Type',  c: '--c-sent',  q: 'Name the child of the director of film Mukhyamantri (1996 Film).' },
+    { id: 'spelling',   label: 'Spelling',   cat: 'Error', c: '--c-err',   q: 'Who is ght childer ar the directer of filme Mukhyamantri (1996 Film )?' }
   ];
   function norm(w) { return w.toLowerCase().replace(/[^a-z0-9]/g, ''); }
   function esc(s) { return s.replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
